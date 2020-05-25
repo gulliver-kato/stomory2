@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   devise_for :users,
   path: 'users',
   path_names: { sign_in: :login, sign_out: :logout }
@@ -24,8 +26,6 @@ Rails.application.routes.draw do
     end
   end
   root 'stories#index'
-  
-
   
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
