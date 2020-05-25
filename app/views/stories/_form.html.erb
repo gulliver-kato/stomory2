@@ -1,0 +1,60 @@
+<nav class="navbar navbar-light navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">New Story</a>
+</nav>
+
+<div class="container mt-5 p-lg-5 bg-light">
+  <%= form_with(model: @story, local: true, url: confirm_stories_path ) do |form| %>
+    <% if story.errors.any? %>
+      <div id="error_explanation">
+
+        <h2><%= pluralize(story.errors.count, "error") %> prohibited this story from being saved:</h2>
+        
+        <ul>
+        <% story.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <div class="form-row mb-4">
+    <div class="col-md-6">
+      <div class="field">
+        <br><%= form.label :title %>
+        <br><%= form.text_area :title, class:"form-control" %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="field">
+        <br><%= form.label :thumbnail_image %>
+        <%= image_tag(@story.thumbnail_image.url) if @story.thumbnail_image && @story.thumbnail_image.url%>
+        <br><%= form.file_field :thumbnail_image %>
+        <!-- ↓一時的なデータとしてファイル構造を含むデータをキャッシュする -->
+        <br><%= form.hidden_field :thumbnail_image_cache%>
+      </div>
+    </div>
+  </div>
+
+  <%= form.fields_for :parts do |part| %>
+    <div class="form-row mb-4">
+      <div class="col-md-6">
+        <div class="field">
+          <br><%= part.label :text %><%= part.index + 1%>
+          <br><%= part.text_area :text, class:"form-control" %>
+        </div>
+        <div class="field">
+          <br><%= part.label :image %><%= part.index + 1%>
+          <br><%= part.file_field :image %> 
+          <br><%= part.hidden_field :image_cache %>
+        </div>
+      </div>
+    </div>
+  <%end%>
+    <div class="col-md-6">
+        <%= link_to_add_association "Storyを追加", form, :parts %>
+    </div>
+  
+  <div class="actions">
+    <br>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -8,7 +8,8 @@ gem 'mini_magick'
 gem 'devise'
 gem 'devise-i18n'
 gem 'rails_admin', '~> 2.0'
-
+gem 'jquery-rails'
+gem 'cocoon'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4'
 # Use postgresql as the database for Active Record

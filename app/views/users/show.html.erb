@@ -1,0 +1,54 @@
+<nav class="navbar navbar-light navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><%= @user.name %>のページ</a>
+</nav>
+
+<div class="container mt-5 p-lg-5 bg-light">
+
+    <div class="col-md-6">
+        <br><p>名前　: <%= @user.name %></p>
+    </div>
+    
+    <div class="col-md-6">
+        <br><p>ニックネーム : <%= @user.nickname %></p>
+    </div>
+    
+    <div class="col-md-6">
+        <br><p>年齢 : <%= @user.age %>歳</p>
+        
+    </div>
+
+    <div class="col-md-6">
+        <br><p>性別 : <%= @user.gender %></p>
+    </div>
+
+    <div class="col-md-6">
+        <br><p>結婚 : <%= @user.maritalstatus %></p>
+    </div>
+
+    <%# <div class="col-md-6">
+        <br><p>国 : <%= @user.country %>
+    <%# </div> %> 
+
+    <div class="col-md-6">
+        <br><p>都道府県 : <%= @user.prefecture %></p>  
+    </div>
+    
+    <div class="col-md-6">
+        <br><p>email : <%= @user.email %></p>
+    </div>
+    
+
+<div class="btn-group" role="group" aria-label="Basic example">
+<% if logged_in? %>
+    <% if current_user.id == @user.id %>
+        <p><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-info mx-2" %></p>
+    <% end %>
+<% end %> 
+<p><%= link_to 'My Story', mystory_stories_path, class: "btn btn-info mx-2"%></p>
+<p><%= link_to 'New Story', new_story_path, class: "btn btn-info mx-2" %></p>
+<%if @user.admin?%>
+<p><%= link_to '管理画面', admin_users_path, class: "btn btn-info mx-2" %></p>
+<%end%>
+</div>
+
+</div>
