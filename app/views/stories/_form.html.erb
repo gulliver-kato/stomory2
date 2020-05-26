@@ -35,7 +35,7 @@
   </div>
 
   <%= form.fields_for :parts do |part| %>
-    <div class="form-row mb-4">
+    <div class="form-row mb-4 nested-fields">
       <div class="col-md-6">
         <div class="field">
           <br><%= part.label :text %><%= part.index + 1%>
@@ -45,6 +45,7 @@
           <br><%= part.label :image %><%= part.index + 1%>
           <br><%= part.file_field :image %> 
           <br><%= part.hidden_field :image_cache %>
+          <br><%= link_to_remove_association 'コメント＋画像を削除', part, class: 'bg-orange btn-type-s' %>
         </div>
       </div>
     </div>
