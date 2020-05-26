@@ -1,2 +1,30 @@
-<h1>Stories#index</h1>
-<p>Find me in app/views/stories/index.html.erb</p>
+
+<nav class="navbar navbar-light navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Story一覧</a>
+</nav>
+<p class="mt-3">みんなのストーリーをチェックしよう</p>
+<div class="container mt-5 p-lg-5 bg-light">
+ 
+
+<% @story.each do |story| %>
+　<div class="card" style="width: 20rem;">
+　　<ul class="list-group list-group-flush">
+      <li class="list-group-item list-group-item-info"><%= story.title %></li>
+    </ul>
+    <%= image_tag(story.thumbnail_image.url) if story.thumbnail_image && story.thumbnail_image.url %>
+  　<div class="card-body">
+      <a href="#" class="card-link"><td><%= link_to 'Show', story, class: "btn btn-secondary" %></td></a>
+        <% if user_signed_in? %>
+          <% if current_user == @user %>
+              <a href="#" class="card-link"><td><%= link_to 'Edit', edit_story_path(story), class: "btn btn-secondary" %></td></a>
+              <a href="#" class="card-link"><td><%= link_to 'Destroy', story, class: "btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td></a>
+          <% end %>
+        <% end %> 
+    </div>
+  </div>
+<% end %>
+<%if user_signed_in? %>
+<br><%= link_to 'New', new_story_path ,class: "btn btn-secondary"%>
+<% end %>
+</div>
+

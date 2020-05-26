@@ -1,0 +1,29 @@
+
+<nav class="navbar navbar-light navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Story</a>
+</nav>
+
+<div class="container mt-5 p-lg-5 bg-light">
+
+<% @story.parts.each do |part|%>
+　<div class="card" style="width: 20rem;">
+　　<ul class="list-group list-group-flush">
+      <li class="list-group-item list-group-item-info"><%= part.text %></li>
+    </ul>
+    <%= image_tag(part.image.url) if part.image && part.image.url %>
+  　<div class="card-body">
+        <% if user_signed_in? %>
+          <% if current_user == @user %>
+              <a href="#" class="card-link"><td><%= link_to 'Edit', edit_story_path(@story), class: "btn btn-secondary" %></td></a>
+              <a href="#" class="card-link"><td><%= link_to 'Destroy', @story, class: "btn btn-secondary", method: :delete, data: { confirm: 'Are you sure?' } %></td></a>
+          <% end %>
+        <% end %> 
+    </div>
+　</div>
+<% end %>
+
+<br><%= link_to 'New', new_story_path ,class: "btn btn-secondary"%>
+<%= link_to 'Back', mystory_stories_path, class: "btn btn-secondary" %>
+</div>
+
+
