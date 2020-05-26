@@ -33,9 +33,10 @@
     </div>
   </div>
   <%= form.fields_for :parts do |part| %>
-    <div class="form-row mb-4">
+    <div class="form-row mb-4 nested-fields">
       <div class="col-md-6">
         <div class="field">
+          <hr>
           <br><%= part.label :text %>
           <br><%= part.text_area :text, class:"form-control" %>
         </div>
@@ -44,6 +45,7 @@
           <br><%= image_tag(@story.parts[part.index].image.url) if @story.parts[part.index].image && @story.parts[part.index].image.url%>
           <br><%= part.file_field :image %> 
           <br><%= part.hidden_field :image_cache %>
+          <br><%= link_to_remove_association 'コメント＋画像を削除', part, class: 'bg-orange btn-type-s' %>
         </div>
       </div>
     </div>

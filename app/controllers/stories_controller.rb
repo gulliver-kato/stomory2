@@ -33,6 +33,7 @@ class StoriesController < ApplicationController
   end
 
   def edit
+    # @story.close_date = CloseDate.new if @story.close_date.blank?
   end
 
   def create

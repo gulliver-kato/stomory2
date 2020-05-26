@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      story: ブログ
+      story: ストーリー
       user: ユーザー
     attributes:
       story:
@@ -24,6 +24,7 @@ ja:
         country: 国
         prefecture: 都道府県
         email: メールアドレス
+        admin: 管理者
         current_password: 現在のパスワード
         password: パスワード
         password_confirmation: 確認用パスワード

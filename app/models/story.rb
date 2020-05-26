@@ -10,7 +10,7 @@ class Story < ApplicationRecord
 
     def reject_both_blank(attributes)
         if attributes[:id]
-            attributes.merge!(_destroy: "1") if attributes[:text].blank? and attributes[:image].blank?
+            attributes.merge!(_destroy: "1") if attributes[:text].blank? || attributes[:image].blank?
             !attributes[:text].blank? and attributes[:image].blank?
         else
             attributes[:text].blank? and attributes[:image].blank?

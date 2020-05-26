@@ -44,6 +44,11 @@
         <p><%#= link_to 'Edit', edit_user_path(@user), class: "btn btn-info mx-2" %></p>
     <% end %>
 <% end %> 
+<% if user_signed_in? %>
+    <% if current_user.id == @user.id %>
+        <p><%= link_to 'Edit', edit_user_registration_path(@user), class: "btn btn-info mx-2" %></p>
+    <% end %>
+<% end %> 
 <p><%= link_to 'My Story', mystory_stories_path, class: "btn btn-info mx-2"%></p>
 <p><%= link_to 'New Story', new_story_path, class: "btn btn-info mx-2" %></p>
 <%if @user.admin?%>
