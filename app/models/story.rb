@@ -6,7 +6,7 @@ class Story < ApplicationRecord
     has_many :parts, dependent: :destroy
     accepts_nested_attributes_for :parts, reject_if: :reject_both_blank, allow_destroy: true
     belongs_to :user
-    validates :parts, presence: true
+    # validates :parts, presence: true
 
     def reject_both_blank(attributes)
         if attributes[:id]
