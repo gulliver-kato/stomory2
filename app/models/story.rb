@@ -14,6 +14,7 @@ class Story < ApplicationRecord
             !attributes[:text].blank? and attributes[:image].blank?
         else
             attributes[:text].blank? and attributes[:image].blank?
+            
         end
     end
 end
