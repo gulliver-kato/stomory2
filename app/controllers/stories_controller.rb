@@ -5,8 +5,7 @@ class StoriesController < ApplicationController
     @story = Story.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     if params[:back]
@@ -32,8 +31,7 @@ class StoriesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @story = current_user.stories.build(story_params)
