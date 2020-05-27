@@ -3,7 +3,7 @@
 </nav>
 
 <div class="container mt-5 p-lg-5 bg-light">
-  <%= form_with(model: @story, local: true, url: confirm_stories_path ) do |form| %>
+  <%= form_with(model: @story, local: true ) do |form| %>
     <% if story.errors.any? %>
       <div id="error_explanation">
 

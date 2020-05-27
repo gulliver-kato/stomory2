@@ -41,14 +41,14 @@ class StoriesController < ApplicationController
     if @story.save
       redirect_to story_path(@story), notice: 'storyを作成しました'
     else
-      @story.parts.build
+      @story.parts.build if @story.parts.empty?
       render :new, notice: 'storyを作成できませんでした'
     end
   end
 
   def update
     if @story.update(story_params)
-      redirect_to stories_path, notice: 'storyを更新しました'
+      redirect_to story_path(@story), notice: 'storyを更新しました'
     else
       render :edit, notice: 'storyを更新できませんでした'
     end

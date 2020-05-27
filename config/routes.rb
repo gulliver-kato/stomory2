@@ -16,16 +16,11 @@ Rails.application.routes.draw do
 
   resources :stories do
     collection do
-      post :confirm
       get :mystory
     end
   end
 
-  resources :parts do
-    collection do
-      post :confirm
-    end
-  end
+  # resources :parts
   
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
