@@ -4,17 +4,17 @@ class Story < ApplicationRecord
     
     mount_uploader :thumbnail_image, ImageUploader
     has_many :parts, dependent: :destroy
-    accepts_nested_attributes_for :parts, reject_if: :reject_both_blank, allow_destroy: true
+    accepts_nested_attributes_for :parts, allow_destroy: true, reject_if: :reject_both_blank
     belongs_to :user
     validates :parts, presence: true
 
     def reject_both_blank(attributes)
-        if attributes[:id]
-            attributes.merge!(_destroy: "1") if attributes[:text].blank? || attributes[:image].blank?
+        if attributes[:text].blank? || attributes[:image].blank?
+            attributes.merge!(_destroy: "1") 
             !attributes[:text].blank? and attributes[:image].blank?
         else
             attributes[:text].blank? and attributes[:image].blank?
-            
+
         end
     end
 end
