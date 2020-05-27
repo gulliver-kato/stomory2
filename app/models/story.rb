@@ -13,8 +13,8 @@ class Story < ApplicationRecord
             attributes.merge!(_destroy: "1") 
             !attributes[:text].blank? and attributes[:image].blank?
         else
+            binding.irb
             attributes[:text].blank? and attributes[:image].blank?
-
         end
     end
 end
