@@ -53,3 +53,21 @@ end
         story_id: 1,
         )
 end
+
+20.times do |n|
+    text  = "ハワイ#{n+1}日目"
+    Part.create!(
+        text: text,
+        image: open("#{Rails.root}/db/fixtures/1.jpeg"),
+        story_id: 2,
+        )
+end
+
+20.times do |n|
+    text  = "ハワイ#{n+1}日目"
+    Part.create!(
+        text: text,
+        image: open("#{Rails.root}/db/fixtures/1.jpeg"),
+        story_id: 3,
+        )
+end
