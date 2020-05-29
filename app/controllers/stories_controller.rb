@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   before_action :set_story, only: [:edit, :show, :update, :destroy]
 
   def index
-    @story = Story.all
+    @story = Story.all.order(created_at: 'DESC')
   end
 
   def show
@@ -18,14 +18,14 @@ class StoriesController < ApplicationController
     end
   end
 
-  def confirm
-    @story = Story.new(story_params)
-    @story.parts.build
-  end
+  # def confirm
+  #   @story = Story.new(story_params)
+  #   @story.parts.build
+  # end
 
   def mystory
     if user_signed_in?
-      @stories = current_user.stories
+      @stories = current_user.stories.order(created_at: 'DESC')
       @user = current_user
     else
       redirect_to root_path, notice: 'ログインしてくだい'
@@ -63,13 +63,13 @@ class StoriesController < ApplicationController
     end
   end
 
-
   private
   def set_story
     @story = Story.find(params[:id])
   end
 
   def story_params
-    params.require(:story).permit(:admin_title, :title, :thumbnail_image, :thumbnail_image_cache, :user_id, parts_attributes: [:text, :image, :story_id, :image_cache, :_destroy])
+    # parts_attributes: [:id, ← id追加
+    params.require(:story).permit(:admin_title, :title, :thumbnail_image, :thumbnail_image_cache, :user_id, parts_attributes: [:id, :text, :image, :story_id, :image_cache, :_destroy])
   end
 end

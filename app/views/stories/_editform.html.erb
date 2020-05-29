@@ -42,19 +42,20 @@
         <div class="field">
           <br><%= part.label :image %>
           <br><%= image_tag(@story.parts[part.index].image.url) if @story.parts[part.index].image && @story.parts[part.index].image.url%>
-          <br><%= part.file_field :image %> 
+          <br><%= part.file_field :image %>
           <br><%= part.hidden_field :image_cache %>
           <br><%= link_to_remove_association 'コメント＋画像を削除', part, class: 'bg-orange btn-type-s' %>
         </div>
       </div>
     </div>
   <%end%>
-    <div class="col-md-6">
-        <br><%= link_to_add_association "Storyを追加", form, :parts %>
-    </div>
+  <div class="col-md-6">
+      <br><%= link_to_add_association "Storyを追加", form, :parts %>
+  </div>
   
   <div class="actions">
     <br>
     <%= form.submit %>
   </div>
-<% end %>
+  <% end %>
+</div>

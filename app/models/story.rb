@@ -9,11 +9,10 @@ class Story < ApplicationRecord
     validates :parts, presence: true
 
     def reject_both_blank(attributes)
-        if attributes[:text].blank? || attributes[:image].blank?
-            attributes.merge!(_destroy: "1") 
+        if attributes[:text].blank? && attributes[:image].blank?
+            attributes.merge!(_destroy: "1")
             !attributes[:text].blank? and attributes[:image].blank?
         else
-            binding.irb
             attributes[:text].blank? and attributes[:image].blank?
         end
     end
