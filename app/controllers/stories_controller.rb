@@ -18,10 +18,10 @@ class StoriesController < ApplicationController
     end
   end
 
-  def confirm
-    @story = Story.new(story_params)
-    @story.parts.build
-  end
+  # def confirm
+  #   @story = Story.new(story_params)
+  #   @story.parts.build
+  # end
 
   def mystory
     if user_signed_in?
@@ -63,13 +63,13 @@ class StoriesController < ApplicationController
     end
   end
 
-
   private
   def set_story
     @story = Story.find(params[:id])
   end
 
   def story_params
-    params.require(:story).permit(:admin_title, :title, :thumbnail_image, :thumbnail_image_cache, :user_id, parts_attributes: [:text, :image, :story_id, :image_cache, :_destroy])
+    # parts_attributes: [:id, ← id追加
+    params.require(:story).permit(:admin_title, :title, :thumbnail_image, :thumbnail_image_cache, :user_id, parts_attributes: [:id, :text, :image, :story_id, :image_cache, :_destroy])
   end
 end
