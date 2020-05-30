@@ -9,12 +9,16 @@ class StoriesController < ApplicationController
   end
 
   def new
-    if params[:back]
-      @story = Story.new(story_params)
-      @story.parts.build
+    if user_signed_in?
+      if params[:back]
+        @story = Story.new(story_params)
+        @story.parts.build
+      else
+        @story = Story.new
+        @story.parts.build
+      end
     else
-      @story = Story.new
-      @story.parts.build
+      redirect_to root_path, notice: 'ログインしてくだい'
     end
   end
 

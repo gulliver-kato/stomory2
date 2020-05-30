@@ -21,9 +21,10 @@
     </div>
 　</div>
 <% end %>
-
-<br><%= link_to 'New', new_story_path ,class: "btn btn-secondary"%>
-<%= link_to 'Back', mystory_stories_path, class: "btn btn-secondary" %>
+<% if user_signed_in? %>
+  <br><%= link_to t('view.story.new'), new_story_path ,class: "btn btn-secondary"%>
+<% end %>
+<%= link_to t('view.story.index_back'), root_path, class: "btn btn-secondary" %>
 </div>
 
 

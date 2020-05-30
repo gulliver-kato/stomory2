@@ -7,7 +7,7 @@
     <% if story.errors.any? %>
       <div id="error_explanation">
 
-        <h2><%= pluralize(story.errors.count, "error") %> prohibited this story from being saved:</h2>
+        <h2><%= pluralize(story.errors.count, t('errors.messages.count')) %><%= t('errors.messages.count_errors')%></h2>
         
         <ul>
         <% story.errors.full_messages.each do |message| %>
