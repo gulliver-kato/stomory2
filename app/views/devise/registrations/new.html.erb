@@ -3,9 +3,9 @@
     <a class="navbar-brand" ><%= t('view.user.newcreate') %></a>
 </nav>
 
-<div class="container mt-5 p-lg-5 bg-light">
+<div class="container mt-5 p-lg-5 bg-light ml-5">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="form-row mb-4">
@@ -52,5 +52,7 @@
     <div class="col-md-6">
       <br><br><%= f.submit t('.sign_up') %>
     </div>
-<% end %>
+  </div>
+  <% end %>
+</div>
 
