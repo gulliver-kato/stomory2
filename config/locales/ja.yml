@@ -132,6 +132,8 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+      count_errors: のエラーがあります
+      count: 件
     template:
       body: 次の項目を確認してください
       header:
@@ -205,13 +207,17 @@ ja:
       short: "%m/%d %H:%M"
     pm: 午後
   view:
-    task:
+    story:
       login: "ログインしてください"
-      new_button: "新規ユーザー作成"
-      show_button: "確認"
-      edit_button: "編集"
-      task.destroy: "削除"
+      new: "Story作成"
+      show: "詳細画面"
+      edit: "編集"
+      destroy: "削除"
+      discription: "みんなのストーリーをチェックしよう"
+      index_back: 'Story一覧'
+      mystory: 'My Story'
     user:
+      edit: "プロフィール編集"
       newcreate: "新規登録"
       user_lists: "ユーザーリスト"
       id: "ID"
@@ -220,3 +226,5 @@ ja:
       task_count: "タスク数"
       destroy_confirm: 'ユーザーを削除しますか？'
       destroy_errer: '削除出来ませんでした'
+    admin:
+      admin: '管理画面'

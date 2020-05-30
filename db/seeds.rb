@@ -42,32 +42,32 @@ end
         title: title,
         thumbnail_image: open("#{Rails.root}/db/fixtures/1.jpeg"),
         user_id: 1,
+        parts_attributes: [
+            {text: '海綺麗',
+            image: open("#{Rails.root}/db/fixtures/1.jpeg")
+            },
+            {text: 'ビーチ人いっぱい',
+            image: open("#{Rails.root}/db/fixtures/2.jpeg")
+            },
+            {text: '夕方',
+            image: open("#{Rails.root}/db/fixtures/3.jpeg")
+            },
+            {text: 'タコライス',
+            image: open("#{Rails.root}/db/fixtures/4.jpeg")
+            },
+            {text: 'ステーキ',
+            image: open("#{Rails.root}/db/fixtures/5.jpeg")
+            },
+            {text: 'ステーキ２',
+            image: open("#{Rails.root}/db/fixtures/6.jpeg")
+            },
+            {text: 'うにー',
+            image: open("#{Rails.root}/db/fixtures/7.jpeg")
+            },
+            {text: 'テリーヌ',
+            image: open("#{Rails.root}/db/fixtures/8.jpeg")
+            },
+        ]
         )
 end
 
-20.times do |n|
-    text  = "ハワイ#{n+1}日目"
-    Part.create!(
-        text: text,
-        image: open("#{Rails.root}/db/fixtures/1.jpeg"),
-        story_id: 1,
-        )
-end
-
-20.times do |n|
-    text  = "ハワイ#{n+1}日目"
-    Part.create!(
-        text: text,
-        image: open("#{Rails.root}/db/fixtures/1.jpeg"),
-        story_id: 2,
-        )
-end
-
-20.times do |n|
-    text  = "ハワイ#{n+1}日目"
-    Part.create!(
-        text: text,
-        image: open("#{Rails.root}/db/fixtures/1.jpeg"),
-        story_id: 3,
-        )
-end
