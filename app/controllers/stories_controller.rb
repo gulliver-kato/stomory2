@@ -37,7 +37,10 @@ class StoriesController < ApplicationController
   end
 
   def edit
-    # @story.close_date = CloseDate.new if @story.close_date.blank?
+    @story.thumbnail_image.cache! unless @story.thumbnail_image.blank?
+    @story.parts do |part|
+      part.image.chache! unless part.image.blank?
+    end
   end
 
   def create
@@ -73,7 +76,6 @@ class StoriesController < ApplicationController
   end
 
   def story_params
-    # parts_attributes: [:id, ← id追加
-    params.require(:story).permit(:admin_title, :title, :thumbnail_image, :thumbnail_image_cache, :user_id, parts_attributes: [:id, :text, :image, :story_id, :image_cache, :_destroy])
+    params.require(:story).permit(:id, :admin_title, :title, :thumbnail_image, :thumbnail_image_cache, :user_id, parts_attributes: [:id, :text, :image, :story_id, :image_cache, :_destroy])
   end
 end
