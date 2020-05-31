@@ -5,8 +5,7 @@ class StoriesController < ApplicationController
     @story = Story.all.order(created_at: 'DESC')
   end
 
-  def show
-  end
+  def show; end
 
   def new
     if user_signed_in?

@@ -7,7 +7,6 @@ class Story < ApplicationRecord
     validates :parts, presence: true
     accepts_nested_attributes_for :parts, allow_destroy: true, reject_if: :reject_both_blank
     belongs_to :user
-    
 
     def reject_both_blank(attributes)
         if attributes[:text].blank? && attributes[:image].blank?
